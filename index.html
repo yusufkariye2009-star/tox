@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Topxo Marketplace</title>
+  <style>
+    body{
+      margin:0;
+      font-family:Arial, sans-serif;
+      background:#0e0e12;
+      color:#fff;
+    }
+    header{
+      background:linear-gradient(135deg,#6a11cb,#2575fc);
+      padding:50px 20px;
+      text-align:center;
+    }
+    header h1{font-size:3rem;margin:0;}
+    header p{opacity:0.9;max-width:700px;margin:10px auto;}
+    nav{
+      background:#111;
+      display:flex;
+      justify-content:center;
+      gap:25px;
+      padding:12px;
+    }
+    nav a{
+      color:#9bbcff;
+      text-decoration:none;
+      font-weight:bold;
+    }
+    nav a:hover{color:#fff;}
+    section{
+      padding:50px 20px;
+      max-width:1100px;
+      margin:auto;
+    }
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:25px;
+    }
+    .card{
+      background:#181825;
+      padding:25px;
+      border-radius:18px;
+      box-shadow:0 10px 25px rgba(0,0,0,0.4);
+    }
+    .price{font-size:1.5rem;color:#00ffb3;font-weight:bold;}
+    .btn{
+      display:inline-block;
+      margin-top:15px;
+      padding:12px 20px;
+      background:#2575fc;
+      color:white;
+      text-decoration:none;
+      border-radius:12px;
+      font-weight:bold;
+    }
+    .btn:hover{background:#1b5fd1;}
+    footer{
+      background:#0a0a0f;
+      text-align:center;
+      padding:25px;
+      font-size:0.9rem;
+      opacity:0.85;
+    }
+    .highlight{
+      background:#0f172a;
+      border-left:4px solid #00ffb3;
+      padding:15px;
+      border-radius:10px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Topxo</h1>
+  <p>A simple marketplace where anyone can sell products. Sellers pay <strong>$20 per item</strong> to list, and choose their own selling price.</p>
+  <a class="btn" href="#sell">Start Selling</a>
+</header>
+
+<nav>
+  <a href="#about">About</a>
+  <a href="#how">How It Works</a>
+  <a href="#products">Products</a>
+  <a href="#sell">Sell on Topxo</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<section id="about">
+  <h2>About Topxo</h2>
+  <p>Topxo is an online marketplace where creators, traders, and digital sellers can list and sell their products easily. There are no limits on pricing — sellers decide how much their product is worth.</p>
+</section>
+
+<section id="how">
+  <h2>How It Works</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>1. List Your Product</h3>
+      <p>Pay a <strong>$20 listing fee</strong> for each product you want to sell.</p>
+    </div>
+    <div class="card">
+      <h3>2. Set Any Price</h3>
+      <p>You decide your product price — $30, $100, or more.</p>
+    </div>
+    <div class="card">
+      <h3>3. Make Sales</h3>
+      <p>Share your product link and earn from every sale.</p>
+    </div>
+  </div>
+</section>
+
+<section id="products">
+  <h2>Listed Products</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>Smartphone for Sale</h3>
+      <p>Condition: New</p>
+      <p class="price">$120</p>
+      <p>📞 Phone: +254700000000</p>
+      <p>🌍 Country: Kenya</p>
+      <a class="btn" href="tel:+254700000000">📞 Call Seller</a>
+      <a class="btn" style="background:#25D366;margin-left:10px;" href="https://wa.me/254700000000" target="_blank">💬 WhatsApp</a>
+    </div>
+
+    <div class="card">
+      <h3>Laptop</h3>
+      <p>Used – Good condition</p>
+      <p class="price">$450</p>
+      <p>📞 Phone: +256780000000</p>
+      <p>🌍 Country: Uganda</p>
+      <a class="btn" href="tel:+256780000000">📞 Call Seller</a>
+      <a class="btn" style="background:#25D366;margin-left:10px;" href="https://wa.me/256780000000" target="_blank">💬 WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<section id="sell">
+  <h2>Sell on Topxo</h2>
+  <div class="highlight">
+    <p><strong>Listing Fee:</strong> $20 per product</p>
+    <p><strong>Seller sets any price</strong></p>
+    <p><strong>Buyers contact seller directly</strong></p>
+  </div>
+
+  <h3>Product Listing Form (Preview)</h3>
+  <p>This is how sellers will list their products on Topxo.</p>
+
+  <form style="background:#181825;padding:25px;border-radius:18px;max-width:600px;">
+    <label>Product Name</label><br>
+    <input type="text" placeholder="Enter product name" style="width:100%;padding:12px;margin:8px 0;border-radius:10px;border:none;"><br>
+
+    <label>Product Price</label><br>
+    <input type="number" placeholder="$" style="width:100%;padding:12px;margin:8px 0;border-radius:10px;border:none;"><br>
+
+    <label>Product Photo</label><br>
+    <input type="file" style="width:100%;padding:12px;margin:8px 0;border-radius:10px;background:#0f172a;"><br>
+
+    <label>Seller Phone Number</label><br>
+    <input type="text" placeholder="e.g. +254700000000" style="width:100%;padding:12px;margin:8px 0;border-radius:10px;border:none;"><br>
+
+    <label>Country</label><br>
+    <input type="text" placeholder="Country" style="width:100%;padding:12px;margin:8px 0;border-radius:10px;border:none;"><br>
+
+    <label>Description</label><br>
+    <textarea placeholder="Describe your product" style="width:100%;padding:12px;margin:8px 0;border-radius:10px;border:none;"></textarea>
+
+    <button class="btn" type="button">Pay $20 & Submit</button>
+  </form>
+
+  <p style="margin-top:15px;">After submission, your product appears on Topxo with your phone number & country visible to buyers.</p>
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <p>📷 Instagram: <strong>@warfere_98</strong></p>
+  <p>For product listings, payments, or support, reach out via Instagram DM.</p>
+</section>
+
+<footer>
+  <p>© 2026 Topxo Marketplace. All rights reserved.</p>
+  <p>Topxo is a listing platform. Sellers are responsible for their products.</p>
+</footer>
+
+<!-- PAYMENTS -->
+<section id="payments">
+  <h2>Payments</h2>
+  <p><strong>Listing Fee:</strong> $20 per product</p>
+  <p>Payments are processed securely via <strong>Stripe / PayPal</strong> (integration ready).</p>
+  <div class="highlight">
+    <p>✔ Automatic payment confirmation</p>
+    <p>✔ Secure checkout</p>
+    <p>✔ Instant product approval</p>
+  </div>
+</section>
+
+<!-- SELLER DASHBOARD -->
+<section id="dashboard">
+  <h2>Seller Dashboard (Preview)</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>Your Products</h3>
+      <p>Manage listed products</p>
+      <p>Status: Active / Pending</p>
+    </div>
+    <div class="card">
+      <h3>Earnings</h3>
+      <p>Total Sales: $0</p>
+      <p>Withdrawals: Coming Soon</p>
+    </div>
+    <div class="card">
+      <h3>Add New Product</h3>
+      <p>Upload files & set price</p>
+      <a class="btn" href="#payments">Pay $20 & List</a>
+    </div>
+  </div>
+</section>
+
+<!-- ADMIN PANEL -->
+<section id="admin">
+  <h2>Admin Panel (Owner)</h2>
+  <div class="highlight">
+    <p>✔ Approve or reject products</p>
+    <p>✔ Manage sellers</p>
+    <p>✔ Track payments & listings</p>
+  </div>
+</section>
+
+<!-- MARKETPLACE APP -->
+<section id="app">
+  <h2>Topxo Marketplace App</h2>
+  <p>Topxo is designed to scale into a full marketplace app.</p>
+  <div class="cards">
+    <div class="card"><h3>📱 Mobile Ready</h3><p>Works like an app on phone</p></div>
+    <div class="card"><h3>🔐 Secure Accounts</h3><p>Seller & buyer accounts</p></div>
+    <div class="card"><h3>⚡ Fast Listings</h3><p>Instant uploads & sales</p></div>
+  </div>
+</section>
+
+</body>
+</html>

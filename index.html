@@ -1,3 +1,4 @@
+<!-- TOPXO MARKETPLACE WEBSITE -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,240 +6,175 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Topxo Marketplace</title>
   <style>
-    body{
-      margin:0;
-      font-family:Arial, sans-serif;
-      background:#0e0e12;
-      color:#fff;
-    }
-    header{
-      background:linear-gradient(135deg,#6a11cb,#2575fc);
-      padding:50px 20px;
-      text-align:center;
-    }
-    header h1{font-size:3rem;margin:0;}
-    header p{opacity:0.9;max-width:700px;margin:10px auto;}
-    nav{
-      background:#111;
-      display:flex;
-      justify-content:center;
-      gap:25px;
-      padding:12px;
-    }
-    nav a{
-      color:#9bbcff;
-      text-decoration:none;
-      font-weight:bold;
-    }
-    nav a:hover{color:#fff;}
-    section{
-      padding:50px 20px;
-      max-width:1100px;
-      margin:auto;
-    }
-    .cards{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-      gap:25px;
-    }
-    .card{
-      background:#181825;
-      padding:25px;
-      border-radius:18px;
-      box-shadow:0 10px 25px rgba(0,0,0,0.4);
-    }
-    .price{font-size:1.5rem;color:#00ffb3;font-weight:bold;}
-    .btn{
-      display:inline-block;
-      margin-top:15px;
-      padding:12px 20px;
-      background:#2575fc;
-      color:white;
-      text-decoration:none;
-      border-radius:12px;
-      font-weight:bold;
-    }
-    .btn:hover{background:#1b5fd1;}
-    footer{
-      background:#0a0a0f;
-      text-align:center;
-      padding:25px;
-      font-size:0.9rem;
-      opacity:0.85;
-    }
-    .highlight{
-      background:#0f172a;
-      border-left:4px solid #00ffb3;
-      padding:15px;
-      border-radius:10px;
-    }
+    body { font-family: Arial, sans-serif; margin: 0; background: linear-gradient(135deg, #fef9c3, #e0f2fe, #ecfeff); color: #0f172a; }
+    header { background: linear-gradient(90deg, #7c3aed, #2563eb); padding: 30px; text-align: center; color: white; }
+    header h1 { margin: 0; font-size: 36px; }
+    .btn { display:inline-block; padding:12px 18px; border-radius:10px; background:#22c55e; color:white; text-decoration:none; margin:5px; }
+    nav { padding: 12px; text-align: center; background: rgba(255,255,255,0.6); backdrop-filter: blur(10px); }
+    nav a { margin: 0 10px; font-weight: bold; text-decoration:none; color:#1e293b; }
+    nav input, nav select { padding: 8px; margin: 5px; border-radius: 6px; border: 1px solid #cbd5f5; }
+    .container { padding: 25px; }
+    .section { margin-bottom: 40px; }
+    .card { background: white; border-radius: 16px; padding: 18px; margin-bottom: 20px; box-shadow: 0 15px 30px rgba(0,0,0,0.1); animation: fadeUp .6s ease; }
+    .card img { width: 100%; border-radius: 14px; }
+    .badge { position:absolute; top:15px; left:15px; padding:6px 10px; border-radius:8px; font-size:12px; color:white; }
+    .available { background:#22c55e; }
+    .sold { background:#ef4444; }
+    .buy { background:#0ea5e9; position:relative; }
+    .sell { background:#f97316; }
+    footer { text-align: center; padding: 25px; font-size: 13px; background:#f1f5f9; color:#475569; }
+    button { padding: 12px 18px; border: none; border-radius: 10px; background: #2563eb; color:white; cursor: pointer; }
+    .photo-box { border:2px dashed #94a3b8; padding:20px; border-radius:14px; text-align:center; cursor:pointer; }
+    .gallery { display:grid; grid-template-columns: repeat(auto-fill,minmax(100px,1fr)); gap:10px; margin-top:10px; }
+    @keyframes fadeUp { from {opacity:0; transform:translateY(20px);} to {opacity:1; transform:translateY(0);} }
   </style>
 </head>
 <body>
 
 <header>
-  <h1>Topxo</h1>
-  <p>A simple marketplace where anyone can sell products. Sellers pay <strong>$20 per item</strong> to list, and choose their own selling price.</p>
-  <a class="btn" href="#sell">Start Selling</a>
-</header>
+    <h1>TOPXO</h1>
+    <p>Sell Anything • Pay $20 per Listing • Contact Sellers Directly</p>
+    <p><strong>Owner:</strong> Ahmed | Instagram: @warfere_98</p>
+    <a class="btn" href="#sell">Sell a Product</a>
+    <a class="btn" style="background:#00c48c;margin-left:10px;" href="#products">Browse Products</a>
+  </header>
+
+<div class="owner">
+  Owner: <strong>Ahmed</strong> | Instagram: <strong>@warfere_98</strong>
+</div>
 
 <nav>
-  <a href="#about">About</a>
-  <a href="#how">How It Works</a>
-  <a href="#products">Products</a>
-  <a href="#sell">Sell on Topxo</a>
-  <a href="#contact">Contact</a>
+  <input type="text" id="search" placeholder="Search products..." onkeyup="searchProducts()" />
+  <select id="categoryFilter" onchange="filterCategory()">
+    <option value="all">All Categories</option>
+    <option value="electronics">Electronics</option>
+    <option value="fashion">Fashion</option>
+    <option value="vehicles">Vehicles</option>
+    <option value="home">Home & Furniture</option>
+    <option value="services">Services</option>
+  </select>
+  <a href="#buy">Buy</a>
+  <a href="#sell">Sell</a>
+  <a href="#payment">Payment</a>
 </nav>
 
-<section id="about">
-  <h2>About Topxo</h2>
-  <p>Topxo is an online marketplace where creators, traders, and digital sellers can list and sell their products easily. There are no limits on pricing — sellers decide how much their product is worth.</p>
-</section>
+<div class="container">
 
-<section id="how">
-  <h2>How It Works</h2>
-  <div class="cards">
-    <div class="card">
-      <h3>1. List Your Product</h3>
-      <p>Pay a <strong>$20 listing fee</strong> for each product you want to sell.</p>
-    </div>
-    <div class="card">
-      <h3>2. Set Any Price</h3>
-      <p>You decide your product price — $30, $100, or more.</p>
-    </div>
-    <div class="card">
-      <h3>3. Make Sales</h3>
-      <p>Share your product link and earn from every sale.</p>
-    </div>
+<section id="dashboard" class="section">
+  <h2>📊 Seller Dashboard</h2>
+  <div class="card">
+    <p>Welcome Seller 👋</p>
+    <ul>
+      <li>🟢 Active Listings: 1</li>
+      <li>⏳ Pending Approval: 0</li>
+      <li>❌ Sold Products: 0</li>
+    </ul>
+    <p><em>(This will become automatic with backend)</em></p>
   </div>
 </section>
 
-<section id="products">
-  <h2>Listed Products</h2>
-  <div class="cards">
-    <div class="card">
-      <h3>Smartphone for Sale</h3>
-      <p>Condition: New</p>
-      <p class="price">$120</p>
-      <p>📞 Phone: +254700000000</p>
-      <p>🌍 Country: Kenya</p>
-      <a class="btn" href="tel:+254700000000">📞 Call Seller</a>
-      <a class="btn" style="background:#25D366;margin-left:10px;" href="https://wa.me/254700000000" target="_blank">💬 WhatsApp</a>
-    </div>
-
-    <div class="card">
-      <h3>Laptop</h3>
-      <p>Used – Good condition</p>
-      <p class="price">$450</p>
-      <p>📞 Phone: +256780000000</p>
-      <p>🌍 Country: Uganda</p>
-      <a class="btn" href="tel:+256780000000">📞 Call Seller</a>
-      <a class="btn" style="background:#25D366;margin-left:10px;" href="https://wa.me/256780000000" target="_blank">💬 WhatsApp</a>
-    </div>
+<section id="admin" class="section">
+  <h2>🛡 Admin Panel (Owner Only)</h2>
+  <div class="card">
+    <p>Admin: <strong>Ahmed</strong></p>
+    <button onclick="alert('Product Approved')">Approve Product</button>
+    <button onclick="alert('Product Marked as Sold')" style="background:#ef4444;margin-left:10px;">Mark Sold</button>
+    <p><em>Only owner manages listings</em></p>
   </div>
 </section>
 
-<section id="sell">
-  <h2>Sell on Topxo</h2>
-  <div class="highlight">
-    <p><strong>Listing Fee:</strong> $20 per product</p>
-    <p><strong>Seller sets any price</strong></p>
-    <p><strong>Buyers contact seller directly</strong></p>
+
+<section id="buy" class="section">
+  <h2>🛒 Buy Products</h2>
+  <div class="card buy product" data-category="electronics">
+    <span class="badge available">Available</span>
+    <h3>Featured Product</h3>
+    <img src="https://via.placeholder.com/400" />
+    <a href="https://wa.me/254700000000" target="_blank" class="btn">💬 Contact on WhatsApp</a>
+    <p>Product Name</p>
+    <p>Price: Seller decides</p>
   </div>
-
-  <h3>Product Listing Form (Preview)</h3>
-  <p>This is how sellers will list their products on Topxo.</p>
-
-  <form style="background:#181825;padding:25px;border-radius:18px;max-width:600px;">
-    <label>Product Name</label><br>
-    <input type="text" placeholder="Enter product name" style="width:100%;padding:12px;margin:8px 0;border-radius:10px;border:none;"><br>
-
-    <label>Product Price</label><br>
-    <input type="number" placeholder="$" style="width:100%;padding:12px;margin:8px 0;border-radius:10px;border:none;"><br>
-
-    <label>Product Photo</label><br>
-    <input type="file" style="width:100%;padding:12px;margin:8px 0;border-radius:10px;background:#0f172a;"><br>
-
-    <label>Seller Phone Number</label><br>
-    <input type="text" placeholder="e.g. +254700000000" style="width:100%;padding:12px;margin:8px 0;border-radius:10px;border:none;"><br>
-
-    <label>Country</label><br>
-    <input type="text" placeholder="Country" style="width:100%;padding:12px;margin:8px 0;border-radius:10px;border:none;"><br>
-
-    <label>Description</label><br>
-    <textarea placeholder="Describe your product" style="width:100%;padding:12px;margin:8px 0;border-radius:10px;border:none;"></textarea>
-
-    <button class="btn" type="button">Pay $20 & Submit</button>
-  </form>
-
-  <p style="margin-top:15px;">After submission, your product appears on Topxo with your phone number & country visible to buyers.</p>
 </section>
 
-<section id="contact">
-  <h2>Contact</h2>
-  <p>📷 Instagram: <strong>@warfere_98</strong></p>
-  <p>For product listings, payments, or support, reach out via Instagram DM.</p>
+<section id="sell" class="section">
+  <h2>📦 Sell Your Product</h2>
+  <div class="card sell">
+    <form onsubmit="return false;">
+      <div class="photo-box" onclick="openPicker()" ondrop="dropHandler(event)" ondragover="event.preventDefault()">
+        <p>📸 Tap or drag photos here (multiple allowed)</p>
+        <div id="gallery" class="gallery"></div>
+      </div>
+      <input type="file" id="fileInput" accept="image/*" multiple style="display:none" onchange="previewImages(event)" />
+      <br><br>
+      <input type="text" placeholder="Product name" /><br /><br />
+      <input type="number" placeholder="Your price" /><br /><br />
+      <input type="text" placeholder="Your phone number" /><br /><br />
+      <input type="text" placeholder="Country" /><br /><br />
+      <p>Listing Fee: <strong>$20</strong></p>
+      <button type="button" onclick="pay()">Pay & Submit</button>
+    </form>
+  </div>
 </section>
+
+<section id="payment" class="section">
+  <h2>💳 Listing Fee Payment</h2>
+  <div class="card">
+    <p>All $20 listing fees are sent to:</p>
+    <p><strong id="ownerNumber">0114386625</strong></p>
+    <p><em>Owner can change this number anytime</em></p>
+  </div>
+</section>
+
+</div>
 
 <footer>
-  <p>© 2026 Topxo Marketplace. All rights reserved.</p>
-  <p>Topxo is a listing platform. Sellers are responsible for their products.</p>
+  © 2026 Topxo | Secure Marketplace
 </footer>
 
-<!-- PAYMENTS -->
-<section id="payments">
-  <h2>Payments</h2>
-  <p><strong>Listing Fee:</strong> $20 per product</p>
-  <p>Payments are processed securely via <strong>Stripe / PayPal</strong> (integration ready).</p>
-  <div class="highlight">
-    <p>✔ Automatic payment confirmation</p>
-    <p>✔ Secure checkout</p>
-    <p>✔ Instant product approval</p>
-  </div>
-</section>
+<script>
+  const OWNER_PAYMENT_NUMBER = "0114386625";
+  document.getElementById("ownerNumber").innerText = OWNER_PAYMENT_NUMBER;
 
-<!-- SELLER DASHBOARD -->
-<section id="dashboard">
-  <h2>Seller Dashboard (Preview)</h2>
-  <div class="cards">
-    <div class="card">
-      <h3>Your Products</h3>
-      <p>Manage listed products</p>
-      <p>Status: Active / Pending</p>
-    </div>
-    <div class="card">
-      <h3>Earnings</h3>
-      <p>Total Sales: $0</p>
-      <p>Withdrawals: Coming Soon</p>
-    </div>
-    <div class="card">
-      <h3>Add New Product</h3>
-      <p>Upload files & set price</p>
-      <a class="btn" href="#payments">Pay $20 & List</a>
-    </div>
-  </div>
-</section>
+  function pay() {
+    alert("Send $20 listing fee to " + OWNER_PAYMENT_NUMBER + " and wait for approval.");
+  }
 
-<!-- ADMIN PANEL -->
-<section id="admin">
-  <h2>Admin Panel (Owner)</h2>
-  <div class="highlight">
-    <p>✔ Approve or reject products</p>
-    <p>✔ Manage sellers</p>
-    <p>✔ Track payments & listings</p>
-  </div>
-</section>
+  function searchProducts() {
+    const query = document.getElementById("search").value.toLowerCase();
+    document.querySelectorAll('.product').forEach(p => {
+      p.style.display = p.innerText.toLowerCase().includes(query) ? 'block' : 'none';
+    });
+  }
 
-<!-- MARKETPLACE APP -->
-<section id="app">
-  <h2>Topxo Marketplace App</h2>
-  <p>Topxo is designed to scale into a full marketplace app.</p>
-  <div class="cards">
-    <div class="card"><h3>📱 Mobile Ready</h3><p>Works like an app on phone</p></div>
-    <div class="card"><h3>🔐 Secure Accounts</h3><p>Seller & buyer accounts</p></div>
-    <div class="card"><h3>⚡ Fast Listings</h3><p>Instant uploads & sales</p></div>
-  </div>
-</section>
+  function filterCategory() {
+    const category = document.getElementById("categoryFilter").value;
+    document.querySelectorAll('.product').forEach(p => {
+      p.style.display = (category === 'all' || p.dataset.category === category) ? 'block' : 'none';
+    });
+  }
+
+  function openPicker() {
+    document.getElementById('fileInput').click();
+  }
+
+  function previewImages(event) {
+    const gallery = document.getElementById('gallery');
+    gallery.innerHTML = '';
+    [...event.target.files].forEach(file => {
+      const img = document.createElement('img');
+      img.src = URL.createObjectURL(file);
+      img.style.width = '100%';
+      img.style.borderRadius = '10px';
+      gallery.appendChild(img);
+    });
+  }
+
+  function dropHandler(event) {
+    event.preventDefault();
+    document.getElementById('fileInput').files = event.dataTransfer.files;
+    previewImages({ target: { files: event.dataTransfer.files } });
+  }
+</script>
 
 </body>
 </html>
